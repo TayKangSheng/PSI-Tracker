@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Map" />
+        <item
+            android:id="@+id/nav_3psi"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="3hr PSI" />
+        <item
+            android:id="@+id/nav_24psi"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="24hr PSI" />
+        <item
+            android:id="@+id/nav_psubindicies"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Pollutant Sub-indicies" />
+    </group>
+</menu>

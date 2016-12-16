@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">PSI Tracker</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="refresh">Refresh</string>
+    <string name="google_maps_api_key">AIzaSyD2xmOza7EtDxBxuV11M3sUit3kP5f9OzE</string>
+    <string name="title_activity_loading">LoadingActivity</string>
+    <string name="data_gov_psi_key">5oE2yNgO6mrIfFXG3Y4KNf7KGD4thuO7</string>
+    <string name="data_gov_link">https://api.data.gov.sg/v1/environment/psi</string>
+    <string name="preference_file_key">PSITrackerPreferenceFile</string>
+    <string name="last_update_key">last_update_key</string>
+    <string name="data_key">data_key</string>
+    <string name="map_data_key">map_data_key</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
