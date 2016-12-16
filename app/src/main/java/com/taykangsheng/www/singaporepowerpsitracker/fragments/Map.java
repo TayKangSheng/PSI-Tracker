@@ -1,29 +1,21 @@
 package com.taykangsheng.www.singaporepowerpsitracker.fragments;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -43,13 +35,11 @@ public class Map extends Fragment implements
         GoogleMap.OnMapClickListener,
         CompoundButton.OnCheckedChangeListener,
         OnMapReadyCallback{
-    private MapFragmentListener mListener;
     private GoogleMap mGoogleMap;
     private DataHelper dataHelper;
     private JSONHelper jsonHelper;
     private String currentRegion;
     private Marker currentMarker;
-
 
     public static Map newInstance() {
         return new Map();
@@ -88,23 +78,6 @@ public class Map extends Fragment implements
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof MapFragmentListener) {
-            mListener = (MapFragmentListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    @Override
     public void onMapReady(GoogleMap googleMap) {
         mGoogleMap = googleMap;
         UiSettings uisettings = mGoogleMap.getUiSettings();
@@ -134,15 +107,14 @@ public class Map extends Fragment implements
             header.setVisibility(View.VISIBLE);
 
             addReadingsPanel("national");
-        } else {
 
+        } else {
             View noData = getView().findViewById(R.id.map_readings_none);
             noData.setVisibility(View.VISIBLE);
 
             LatLng camera_position = new LatLng((double) 1.35735, (double) 103.82);
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(camera_position));
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(camera_position, 10));
-
         }
     }
 
@@ -265,9 +237,5 @@ public class Map extends Fragment implements
             View notDetailed = getView().findViewById(R.id.map_readings_not_detailed);
             notDetailed.setVisibility(View.VISIBLE);
         }
-    }
-
-    public interface MapFragmentListener {
-
     }
 }

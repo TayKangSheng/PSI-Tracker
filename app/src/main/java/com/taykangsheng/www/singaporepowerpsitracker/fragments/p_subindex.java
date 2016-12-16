@@ -38,9 +38,7 @@ public class p_subindex extends Fragment {
     DataHelper mDataHelper;
     JSONHelper mJSONHelper;
 
-    public p_subindex() {
-
-    }
+    public p_subindex() { ; }
 
     public static p_subindex newInstance() {
         p_subindex fragment = new p_subindex();
@@ -67,11 +65,6 @@ public class p_subindex extends Fragment {
                 throw new RuntimeException(e);
             }
         }
-//        try {
-//            mJSONHelper = new JSONHelper(new JSONObject(mDataHelper.getPSIData()));
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
     }
 
     @Override

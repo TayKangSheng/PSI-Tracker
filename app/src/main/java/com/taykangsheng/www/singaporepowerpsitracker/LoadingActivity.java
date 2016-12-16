@@ -1,9 +1,7 @@
 package com.taykangsheng.www.singaporepowerpsitracker;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -47,7 +45,6 @@ public class LoadingActivity extends AppCompatActivity implements AlertDialogFra
 
 
         RetrieveCurrentData();
-//        RetrieveTodayPSIData();
     }
 
     private void RetrieveCurrentData(){
@@ -64,16 +61,12 @@ public class LoadingActivity extends AppCompatActivity implements AlertDialogFra
                 "Accept", "*/*",
                 "User-Agent", "Mozilla/5.0"
         };
-//        String[] queries = {
-//                "date", df.format(calendar.getTime())
-//        };
 
         Bundle bundle = new Bundle();
         bundle.putString("address",URL);
         bundle.putStringArray("headers", headers);
         bundle.putString("errorMessage","Fail to receive latest updates.");
         bundle.putString("tag", "map");
-//        bundle.putStringArray("queries", queries);
 
         Log.d("PSITracker", "Execute Async");
         asyncTask.execute(bundle);
@@ -100,7 +93,6 @@ public class LoadingActivity extends AppCompatActivity implements AlertDialogFra
     public void AsyncResponse(JSONObject currentData, String error_message, String tag) {
         if (currentData == null){
             Log.d("PSITracker", "Fail to receive latest updates.");
-            String message = "Fail to receive latest updates.";
             AlertDialogFragment alertFragment = AlertDialogFragment.newInstance(error_message,"Continue","Quit");
             alertFragment.show(getSupportFragmentManager(), "AlertFragment");
         } else {

@@ -67,11 +67,6 @@ public class PSI_24hr extends Fragment {
                 throw new RuntimeException(e);
             }
         }
-//        try {
-//            mJSONHelper = new JSONHelper(new JSONObject());
-//        } catch (Exception e){
-//            throw new RuntimeException(e);
-//        }
     }
 
     @Override

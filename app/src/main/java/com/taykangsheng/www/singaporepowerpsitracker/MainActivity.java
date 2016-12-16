@@ -3,6 +3,7 @@ package com.taykangsheng.www.singaporepowerpsitracker;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
@@ -37,9 +38,7 @@ import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener,
-        AsyncHttpRequestHelper.AsyncResponseListener,
-        Map.MapFragmentListener {
-
+        AsyncHttpRequestHelper.AsyncResponseListener {
     private FragmentManager fragmentManager;
     public MenuItem currentNavigationItem;
     public MenuItem selectedNavigationItem;
@@ -107,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem item= menu.findItem(R.id.refresh);
+//        MenuItem item = menu.findItem(R.id.refresh);
         super.onPrepareOptionsMenu(menu);
         return true;
     }
@@ -163,25 +162,25 @@ public class MainActivity extends AppCompatActivity implements
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             Map MapFragment = Map.newInstance();
             fragmentTransaction.replace(R.id.fragment_container, MapFragment);
-            fragmentTransaction.commit();
+            fragmentTransaction.commitAllowingStateLoss();
         } else if (id == R.id.nav_3psi) {
             fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             PSI_3hr MapFragment = PSI_3hr.newInstance();
             fragmentTransaction.replace(R.id.fragment_container, MapFragment);
-            fragmentTransaction.commit();
+            fragmentTransaction.commitAllowingStateLoss();
         } else if (id == R.id.nav_24psi) {
             fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             PSI_24hr MapFragment = PSI_24hr.newInstance();
             fragmentTransaction.replace(R.id.fragment_container, MapFragment);
-            fragmentTransaction.commit();
+            fragmentTransaction.commitAllowingStateLoss();
         } else if (id == R.id.nav_psubindicies) {
             fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             p_subindex MapFragment = p_subindex.newInstance();
             fragmentTransaction.replace(R.id.fragment_container, MapFragment);
-            fragmentTransaction.commit();
+            fragmentTransaction.commitAllowingStateLoss();
         }
     }
 
@@ -198,9 +197,6 @@ public class MainActivity extends AppCompatActivity implements
                 "api-key", "5oE2yNgO6mrIfFXG3Y4KNf7KGD4thuO7",
                 "Accept", "*/*",
                 "User-Agent", "Mozilla/5.0"
-        };
-        String[] queries = {
-                "date", df.format(calendar.getTime())
         };
 
         Bundle mapBundle = new Bundle();
@@ -255,7 +251,7 @@ public class MainActivity extends AppCompatActivity implements
             } else if (tag == "psi") {
                 dataHelper.setPSIData(currentData.toString());
             }
-            refreshFragment();
         }
+        refreshFragment();
     }
 }

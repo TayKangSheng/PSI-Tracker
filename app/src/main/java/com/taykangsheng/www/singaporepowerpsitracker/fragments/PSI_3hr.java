@@ -5,13 +5,11 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
@@ -21,10 +19,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
-import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.taykangsheng.www.singaporepowerpsitracker.R;
 import com.taykangsheng.www.singaporepowerpsitracker.helpers.DataHelper;
 import com.taykangsheng.www.singaporepowerpsitracker.helpers.JSONHelper;
@@ -72,11 +67,6 @@ public class PSI_3hr extends Fragment {
                 throw new RuntimeException(e);
             }
         }
-//        try {
-//            mJSONHelper = new JSONHelper(new JSONObject(mDataHelper.getPSIData()));
-//        } catch (Exception e){
-//            throw new RuntimeException(e);
-//        }
     }
 
     @Override

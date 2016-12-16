@@ -5,8 +5,6 @@ import com.google.android.gms.maps.model.LatLng;
 
 import org.hamcrest.core.*;
 import org.json.JSONObject;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
