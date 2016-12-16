@@ -23,6 +23,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.contrib.DrawerMatchers.isClosed;
 import static android.support.test.espresso.contrib.DrawerMatchers.isOpen;
 import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withParent;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -68,8 +69,8 @@ public class ChangeFragmentBehaviorTest {
         onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_3psi));
         onView(withId(R.id.drawer_layout)).check(matches(isClosed()));
 
-        //onView(withText(title)).perform(click());
         checkToolbarTitle(title);
+        onView(withId(R.id.chart)).check(matches(isDisplayed()));
     }
 
 
@@ -80,8 +81,8 @@ public class ChangeFragmentBehaviorTest {
 
         String title = "24hr PSI";
         onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_24psi));
-        //onView(withText(title)).perform(click());
         checkToolbarTitle(title);
+        onView(withId(R.id.chart)).check(matches(isDisplayed()));
     }
 
     @Test
@@ -91,8 +92,8 @@ public class ChangeFragmentBehaviorTest {
 
         String title = "Pollutant Sub-indicies";
         onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_psubindicies));
-        // onView(withText(title)).perform(click());
         checkToolbarTitle(title);
+        onView(withId(R.id.chart)).check(matches(isDisplayed()));
     }
 
     @Test
@@ -103,6 +104,8 @@ public class ChangeFragmentBehaviorTest {
         String title = "Map";
         onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_map));
         checkToolbarTitle(title);
+        onView(withId(R.id.map_frame)).check(matches(isDisplayed()));
+        onView(withId(R.id.map_readings)).check(matches(isDisplayed()));
     }
 
     @Test
